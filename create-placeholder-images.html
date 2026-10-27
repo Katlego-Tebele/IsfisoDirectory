@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Generate Placeholder Images</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 900px;
+            margin: 50px auto;
+            padding: 20px;
+            background: #f5f5f5;
+        }
+        .container {
+            background: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        h1 {
+            color: #8B4513;
+            text-align: center;
+        }
+        .info {
+            background: #FFF8E7;
+            padding: 15px;
+            border-left: 4px solid #D4A574;
+            margin: 20px 0;
+        }
+        button {
+            background: #8B4513;
+            color: white;
+            border: none;
+            padding: 15px 30px;
+            font-size: 16px;
+            border-radius: 5px;
+            cursor: pointer;
+            width: 100%;
+            margin: 10px 0;
+        }
+        button:hover {
+            background: #6B3410;
+        }
+        .output {
+            margin-top: 20px;
+            padding: 15px;
+            background: #f9f9f9;
+            border-radius: 5px;
+            display: none;
+        }
+        .success {
+            color: #25D366;
+            font-weight: bold;
+        }
+        .instructions {
+            background: #e8f5e9;
+            padding: 15px;
+            border-radius: 5px;
+            margin-top: 20px;
+        }
+        canvas {
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🎨 Placeholder Image Generator</h1>
+        
+        <div class="info">
+            <strong>Purpose:</strong> This tool creates temporary placeholder images for your website so you can see the layout while you prepare your real photos.
+            <br><br>
+            <strong>Important:</strong> Replace these with your actual carpentry photos as soon as possible!
+        </div>
+
+        <button onclick="generateAllImages()">Generate All Placeholder Images</button>
+        
+        <div id="output" class="output"></div>
+
+        <div class="instructions">
+            <h3>📋 Instructions:</h3>
+            <ol>
+                <li>Click the button above to generate placeholder images</li>
+                <li>Each image will download automatically</li>
+                <li>Place the downloaded images in their correct folders:
+                    <ul>
+                        <li>Service images → <code>assets/images/services/</code></li>
+                        <li>Gallery images → <code>assets/images/gallery/</code></li>
+                    </ul>
+                </li>
+                <li>Your website will now display with placeholders</li>
+                <li><strong>Replace with real photos as soon as possible!</strong></li>
+            </ol>
+        </div>
+    </div>
+
+    <canvas id="canvas"></canvas>
+
+    <script>
+        function createPlaceholder(text, width, height, filename, description) {
+            const canvas = document.getElementById('canvas');
+            const ctx = canvas.getContext('2d');
+            
+            canvas.width = width;
+            canvas.height = height;
+            
+            // Background gradient
+            const gradient = ctx.createLinearGradient(0, 0, width, height);
+            gradient.addColorStop(0, '#8B4513');
+            gradient.addColorStop(1, '#A0522D');
+            ctx.fillStyle = gradient;
+            ctx.fillRect(0, 0, width, height);
+            
+            // Semi-transparent overlay
+            ctx.fillStyle = 'rgba(0, 0, 0, 0.2)';
+            ctx.fillRect(0, 0, width, height);
+            
+            // Text
+            ctx.fillStyle = '#FFFFFF';
+            ctx.textAlign = 'center';
+            ctx.textBaseline = 'middle';
+            
+            // Main text
+            ctx.font = 'bold ' + (width / 15) + 'px Arial';
+            const lines = text.split('\n');
+            const lineHeight = width / 12;
+            const startY = (height - (lines.length - 1) * lineHeight) / 2;
+            
+            lines.forEach((line, i) => {
+                ctx.fillText(line, width / 2, startY + (i * lineHeight));
+            });
+            
+            // Description text
+            ctx.font = (width / 30) + 'px Arial';
+            ctx.fillStyle = 'rgba(255, 255, 255, 0.8)';
+            ctx.fillText(description, width / 2, height - 30);
+            
+            // Download
+            canvas.toBlob(function(blob) {
+                const url = URL.createObjectURL(blob);
+                const a = document.createElement('a');
+                a.href = url;
+                a.download = filename;
+                document.body.appendChild(a);
+                a.click();
+                document.body.removeChild(a);
+                URL.revokeObjectURL(url);
+            }, 'image/jpeg', 0.9);
+        }
+
+        function generateAllImages() {
+            const output = document.getElementById('output');
+            output.style.display = 'block';
+            output.innerHTML = '<p>Generating images... Downloads will start automatically.</p>';
+            
+            let count = 0;
+            const total = 13;
+            
+            const images = [
+                // Service images (800x600)
+                { text: 'BUILT-IN\nKITCHEN\nUNITS', width: 800, height: 600, filename: 'kitchen.jpg', desc: 'Replace with your kitchen photo' },
+                { text: 'BUILT-IN\nWARDROBES', width: 800, height: 600, filename: 'wardrobe.jpg', desc: 'Replace with your wardrobe photo' },
+                { text: 'TV UNITS', width: 800, height: 600, filename: 'tv-unit.jpg', desc: 'Replace with your TV unit photo' },
+                { text: 'BAR\nTABLES', width: 800, height: 600, filename: 'bar-table.jpg', desc: 'Replace with your bar table photo' },
+                { text: 'WOODEN\nFLOORING', width: 800, height: 600, filename: 'flooring.jpg', desc: 'Replace with your flooring photo' },
+                { text: 'CEILING\nINSTALLATION', width: 800, height: 600, filename: 'ceiling.jpg', desc: 'Replace with your ceiling photo' },
+                
+                // Gallery images (1200x900)
+                { text: 'PROJECT 1', width: 1200, height: 900, filename: 'project-1.jpg', desc: 'Replace with your project photo' },
+                { text: 'PROJECT 2', width: 1200, height: 900, filename: 'project-2.jpg', desc: 'Replace with your project photo' },
+                { text: 'PROJECT 3', width: 1200, height: 900, filename: 'project-3.jpg', desc: 'Replace with your project photo' },
+                { text: 'PROJECT 4', width: 1200, height: 900, filename: 'project-4.jpg', desc: 'Replace with your project photo' },
+                { text: 'PROJECT 5', width: 1200, height: 900, filename: 'project-5.jpg', desc: 'Replace with your project photo' },
+                { text: 'PROJECT 6', width: 1200, height: 900, filename: 'project-6.jpg', desc: 'Replace with your project photo' },
+                
+                // Hero background (1920x1080)
+                { text: 'ISIFISO-SAKHO\nCARPENTRY', width: 1920, height: 1080, filename: 'hero-bg.jpg', desc: 'Quality Craftsmanship. Beautiful Spaces.' }
+            ];
+            
+            function generateNext() {
+                if (count < images.length) {
+                    const img = images[count];
+                    setTimeout(() => {
+                        createPlaceholder(img.text, img.width, img.height, img.filename, img.desc);
+                        count++;
+                        output.innerHTML = `<p>Generated ${count} of ${total} images...</p>`;
+                        generateNext();
+                    }, 500); // Delay between downloads
+                } else {
+                    output.innerHTML = `
+                        <p class="success">✅ All ${total} images generated successfully!</p>
+                        <p><strong>Next steps:</strong></p>
+                        <ol>
+                            <li>Check your Downloads folder for ${total} .jpg files</li>
+                            <li>Move service images (kitchen.jpg, wardrobe.jpg, etc.) to <code>assets/images/services/</code></li>
+                            <li>Move gallery images (project-1.jpg through project-6.jpg) to <code>assets/images/gallery/</code></li>
+                            <li>Move hero-bg.jpg to <code>assets/images/</code></li>
+                            <li>Open index.html in your browser to see the results</li>
+                            <li><strong>Replace these with your real photos ASAP!</strong></li>
+                        </ol>
+                    `;
+                }
+            }
+            
+            generateNext();
+        }
+    </script>
+</body>
+</html>

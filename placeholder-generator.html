@@ -1,0 +1,372 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Placeholder Image Generator - Isifiso-Sakho Carpentry</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #FAF6F1 0%, #E8DCC7 100%);
+            padding: 2rem;
+            margin: 0;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            background: white;
+            padding: 2rem;
+            border-radius: 12px;
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15);
+        }
+        h1 {
+            color: #8B4513;
+            text-align: center;
+            margin-bottom: 1rem;
+        }
+        .subtitle {
+            text-align: center;
+            color: #666;
+            margin-bottom: 2rem;
+        }
+        .info-box {
+            background: #FFF8E7;
+            border-left: 4px solid #D4A574;
+            padding: 1rem;
+            margin-bottom: 2rem;
+            border-radius: 4px;
+        }
+        .info-box strong {
+            color: #8B4513;
+        }
+        .section {
+            margin-bottom: 3rem;
+        }
+        .section h2 {
+            color: #8B4513;
+            border-bottom: 2px solid #D4A574;
+            padding-bottom: 0.5rem;
+            margin-bottom: 1.5rem;
+        }
+        .image-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 1.5rem;
+            margin-top: 1rem;
+        }
+        .image-card {
+            border: 2px solid #ddd;
+            border-radius: 8px;
+            overflow: hidden;
+            transition: transform 0.3s ease;
+        }
+        .image-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+        }
+        .image-placeholder {
+            width: 100%;
+            height: 200px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: linear-gradient(135deg, #8B4513 0%, #A0522D 100%);
+            color: white;
+            font-size: 1.5rem;
+            font-weight: bold;
+            text-align: center;
+            padding: 1rem;
+        }
+        .image-card-info {
+            padding: 1rem;
+            background: #f9f9f9;
+        }
+        .image-card-info h3 {
+            margin: 0 0 0.5rem 0;
+            color: #8B4513;
+            font-size: 1.1rem;
+        }
+        .image-card-info p {
+            margin: 0.25rem 0;
+            color: #666;
+            font-size: 0.9rem;
+        }
+        .image-card-info .filename {
+            color: #25D366;
+            font-weight: bold;
+            font-family: monospace;
+            background: #f0f0f0;
+            padding: 0.25rem 0.5rem;
+            border-radius: 4px;
+            display: inline-block;
+            margin-top: 0.5rem;
+        }
+        .download-btn {
+            background: #8B4513;
+            color: white;
+            border: none;
+            padding: 0.75rem 1.5rem;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 1rem;
+            font-weight: 600;
+            margin-top: 0.5rem;
+            width: 100%;
+            transition: background 0.3s ease;
+        }
+        .download-btn:hover {
+            background: #6B3410;
+        }
+        .instructions {
+            background: #f9f9f9;
+            padding: 1.5rem;
+            border-radius: 8px;
+            margin-top: 2rem;
+        }
+        .instructions h3 {
+            color: #8B4513;
+            margin-top: 0;
+        }
+        .instructions ol {
+            color: #666;
+            line-height: 1.8;
+        }
+        .instructions li {
+            margin-bottom: 0.5rem;
+        }
+        .badge {
+            display: inline-block;
+            background: #25D366;
+            color: white;
+            padding: 0.25rem 0.75rem;
+            border-radius: 12px;
+            font-size: 0.75rem;
+            font-weight: bold;
+            margin-left: 0.5rem;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🖼️ Placeholder Image Reference</h1>
+        <p class="subtitle">Isifiso-Sakho Carpentry Website - Image Requirements</p>
+
+        <div class="info-box">
+            <strong>📌 Important:</strong> This page shows you what images you need for your website. 
+            These are NOT actual images - you need to add your own carpentry photos with these exact filenames.
+            See <strong>IMAGE-GUIDE.md</strong> for detailed instructions.
+        </div>
+
+        <!-- Service Images Section -->
+        <div class="section">
+            <h2>Service Images <span class="badge">6 REQUIRED</span></h2>
+            <p style="color: #666; margin-bottom: 1rem;">Place these images in: <code style="background: #f0f0f0; padding: 0.25rem 0.5rem; border-radius: 4px;">assets/images/services/</code></p>
+            
+            <div class="image-grid">
+                <div class="image-card">
+                    <div class="image-placeholder">
+                        🔨<br>KITCHEN<br>UNITS
+                    </div>
+                    <div class="image-card-info">
+                        <h3>Built-in Kitchen Units</h3>
+                        <p>📐 Size: 800 × 600 pixels</p>
+                        <p>📄 Format: JPG (compressed)</p>
+                        <p class="filename">kitchen.jpg</p>
+                    </div>
+                </div>
+
+                <div class="image-card">
+                    <div class="image-placeholder">
+                        🚪<br>BUILT-IN<br>WARDROBES
+                    </div>
+                    <div class="image-card-info">
+                        <h3>Built-in Wardrobes</h3>
+                        <p>📐 Size: 800 × 600 pixels</p>
+                        <p>📄 Format: JPG (compressed)</p>
+                        <p class="filename">wardrobe.jpg</p>
+                    </div>
+                </div>
+
+                <div class="image-card">
+                    <div class="image-placeholder">
+                        📺<br>TV<br>UNITS
+                    </div>
+                    <div class="image-card-info">
+                        <h3>TV Units</h3>
+                        <p>📐 Size: 800 × 600 pixels</p>
+                        <p>📄 Format: JPG (compressed)</p>
+                        <p class="filename">tv-unit.jpg</p>
+                    </div>
+                </div>
+
+                <div class="image-card">
+                    <div class="image-placeholder">
+                        🍷<br>BAR<br>TABLES
+                    </div>
+                    <div class="image-card-info">
+                        <h3>Bar Tables</h3>
+                        <p>📐 Size: 800 × 600 pixels</p>
+                        <p>📄 Format: JPG (compressed)</p>
+                        <p class="filename">bar-table.jpg</p>
+                    </div>
+                </div>
+
+                <div class="image-card">
+                    <div class="image-placeholder">
+                        🪵<br>WOODEN<br>FLOORING
+                    </div>
+                    <div class="image-card-info">
+                        <h3>Wooden Floors</h3>
+                        <p>📐 Size: 800 × 600 pixels</p>
+                        <p>📄 Format: JPG (compressed)</p>
+                        <p class="filename">flooring.jpg</p>
+                    </div>
+                </div>
+
+                <div class="image-card">
+                    <div class="image-placeholder">
+                        ⬆️<br>CEILING<br>INSTALL
+                    </div>
+                    <div class="image-card-info">
+                        <h3>Ceilings</h3>
+                        <p>📐 Size: 800 × 600 pixels</p>
+                        <p>📄 Format: JPG (compressed)</p>
+                        <p class="filename">ceiling.jpg</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Gallery Images Section -->
+        <div class="section">
+            <h2>Gallery / Portfolio Images <span class="badge">6+ REQUIRED</span></h2>
+            <p style="color: #666; margin-bottom: 1rem;">Place these images in: <code style="background: #f0f0f0; padding: 0.25rem 0.5rem; border-radius: 4px;">assets/images/gallery/</code></p>
+            
+            <div class="image-grid">
+                <div class="image-card">
+                    <div class="image-placeholder">
+                        PROJECT<br>1
+                    </div>
+                    <div class="image-card-info">
+                        <h3>Gallery Project 1</h3>
+                        <p>📐 Size: 1200 × 900 pixels</p>
+                        <p>📄 Format: JPG (compressed)</p>
+                        <p class="filename">project-1.jpg</p>
+                    </div>
+                </div>
+
+                <div class="image-card">
+                    <div class="image-placeholder">
+                        PROJECT<br>2
+                    </div>
+                    <div class="image-card-info">
+                        <h3>Gallery Project 2</h3>
+                        <p>📐 Size: 1200 × 900 pixels</p>
+                        <p>📄 Format: JPG (compressed)</p>
+                        <p class="filename">project-2.jpg</p>
+                    </div>
+                </div>
+
+                <div class="image-card">
+                    <div class="image-placeholder">
+                        PROJECT<br>3
+                    </div>
+                    <div class="image-card-info">
+                        <h3>Gallery Project 3</h3>
+                        <p>📐 Size: 1200 × 900 pixels</p>
+                        <p>📄 Format: JPG (compressed)</p>
+                        <p class="filename">project-3.jpg</p>
+                    </div>
+                </div>
+
+                <div class="image-card">
+                    <div class="image-placeholder">
+                        PROJECT<br>4
+                    </div>
+                    <div class="image-card-info">
+                        <h3>Gallery Project 4</h3>
+                        <p>📐 Size: 1200 × 900 pixels</p>
+                        <p>📄 Format: JPG (compressed)</p>
+                        <p class="filename">project-4.jpg</p>
+                    </div>
+                </div>
+
+                <div class="image-card">
+                    <div class="image-placeholder">
+                        PROJECT<br>5
+                    </div>
+                    <div class="image-card-info">
+                        <h3>Gallery Project 5</h3>
+                        <p>📐 Size: 1200 × 900 pixels</p>
+                        <p>📄 Format: JPG (compressed)</p>
+                        <p class="filename">project-5.jpg</p>
+                    </div>
+                </div>
+
+                <div class="image-card">
+                    <div class="image-placeholder">
+                        PROJECT<br>6
+                    </div>
+                    <div class="image-card-info">
+                        <h3>Gallery Project 6</h3>
+                        <p>📐 Size: 1200 × 900 pixels</p>
+                        <p>📄 Format: JPG (compressed)</p>
+                        <p class="filename">project-6.jpg</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Optional Hero Image -->
+        <div class="section">
+            <h2>Hero Background Image <span class="badge" style="background: #666;">OPTIONAL</span></h2>
+            <p style="color: #666; margin-bottom: 1rem;">Place this image in: <code style="background: #f0f0f0; padding: 0.25rem 0.5rem; border-radius: 4px;">assets/images/</code></p>
+            
+            <div class="image-grid">
+                <div class="image-card">
+                    <div class="image-placeholder" style="height: 150px;">
+                        🏠 HERO BACKGROUND
+                    </div>
+                    <div class="image-card-info">
+                        <h3>Hero Section Background</h3>
+                        <p>📐 Size: 1920 × 1080 pixels</p>
+                        <p>📄 Format: JPG (compressed)</p>
+                        <p class="filename">hero-bg.jpg</p>
+                        <p style="margin-top: 0.5rem; font-style: italic; color: #888;">This image is optional but recommended for a professional look</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Instructions -->
+        <div class="instructions">
+            <h3>🚀 How to Add Your Images</h3>
+            <ol>
+                <li><strong>Take or gather photos</strong> of your completed carpentry projects</li>
+                <li><strong>Resize images</strong> to the recommended dimensions (use free tools like <a href="https://www.resizepixel.com" target="_blank">ResizePixel</a>)</li>
+                <li><strong>Compress images</strong> to reduce file size (use <a href="https://tinypng.com" target="_blank">TinyPNG</a> - aim for under 500KB per image)</li>
+                <li><strong>Rename files</strong> to match the exact filenames shown above (e.g., kitchen.jpg, wardrobe.jpg)</li>
+                <li><strong>Place files</strong> in the correct folders:
+                    <ul>
+                        <li>Service images → <code>assets/images/services/</code></li>
+                        <li>Gallery images → <code>assets/images/gallery/</code></li>
+                        <li>Hero background → <code>assets/images/</code></li>
+                    </ul>
+                </li>
+                <li><strong>Test your website</strong> by opening index.html in your browser</li>
+                <li><strong>Refresh browser</strong> (Ctrl+F5) if images don't appear immediately</li>
+            </ol>
+
+            <div style="margin-top: 1.5rem; padding: 1rem; background: white; border-radius: 6px; border-left: 4px solid #25D366;">
+                <strong style="color: #25D366;">💡 Pro Tip:</strong> Use your smartphone to take photos! Modern phone cameras produce excellent quality images perfect for websites. Just make sure there's good lighting and the space is tidy.
+            </div>
+        </div>
+
+        <div style="text-align: center; margin-top: 2rem; padding: 1.5rem; background: #8B4513; color: white; border-radius: 8px;">
+            <h3 style="margin-top: 0; color: white;">Need Detailed Instructions?</h3>
+            <p style="margin-bottom: 1rem;">Read the <strong>IMAGE-GUIDE.md</strong> file for comprehensive step-by-step instructions, photography tips, and troubleshooting help.</p>
+            <p style="margin: 0; font-size: 0.9rem; opacity: 0.9;">Isifiso-Sakho Carpentry | Quality Craftsmanship. Beautiful Spaces.</p>
+        </div>
+    </div>
+</body>
+</html>
